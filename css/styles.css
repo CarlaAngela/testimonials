@@ -1,0 +1,179 @@
+:root {
+  --text-color: #180f12;
+  --btn-color: #413697;
+  --pd: 1.25rem;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4433e;
+  display: grid;
+  place-content: center;
+  padding: var(--pd);
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+button i {
+  pointer-events: none;
+}
+
+.container {
+  width: 65.75rem;
+  height: 43.75rem;
+  padding: calc(var(--pd) * 2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: var(--pd);
+  position: relative;
+  color: var(--text-color);
+  background-color: #fff4f5;
+  box-shadow: 0px 30px 35px #a6302c;
+}
+
+.container::before {
+  content: "";
+  width: 30%;
+  height: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: -25%;
+  left: 55%;
+  background: radial-gradient(circle, #6c47da 6%, #c0b0f9 35%, #e1d4f8 88%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.exit {
+  padding: 4px;
+  align-self: flex-end;
+  font-size: 1.5rem;
+}
+
+.testimonial-container {
+  flex: 1;
+  width: 100%;
+  height: 80%;
+  margin-top: 30px;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 80px 220px 350px 80px;
+  grid-template-rows: 100px 90px 100px 60px;
+  grid-template-areas:
+    "text img name ."
+    "text img comment ."
+    "prev img comment next"
+    ".    img . .";
+}
+
+.effect {
+  width: 100%;
+  grid-column: 2/3;
+  grid-row: 3/4;
+  position: relative;
+  z-index: 3;
+  background-color: #512fe9;
+  mix-blend-mode: multiply;
+}
+
+.text {
+  text-align: end;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: lighter;
+  grid-area: text;
+}
+
+.user-img {
+  width: 100%;
+  height: 100%;
+  grid-area: img;
+  position: relative;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.user-name {
+  display: flex;
+  justify-content: start;
+  margin-left: 40px;
+  align-items: center;
+  font-size: 1.5rem;
+  grid-area: name;
+  color: var(--text-color);
+}
+
+.user-comment {
+  background-color: #1a1013;
+  color: #bfcacc;
+  padding: 25px 20px;
+  grid-area: comment;
+}
+
+.user-comment p {
+  font-size: 1rem;
+  margin-left: 28px;
+  line-height: 1.2;
+}
+
+.user-comment .bi-quote {
+  font-size: 1.75rem;
+}
+
+.btn-control {
+  background-color: var(--btn-color);
+  border: none;
+  color: #fff;
+  font-size: 1.75rem;
+  cursor: pointer;
+  transition: filter 300ms ease;
+}
+
+.btn-control:hover,
+.btn-control:focus {
+  filter: brightness(0.8);
+}
+
+.left {
+  grid-area: prev;
+}
+
+.right {
+  grid-area: next;
+}
+
+.count {
+  padding-left: calc(var(--pd) * 3);
+}
+
+.count .current {
+  font-size: 5.65rem;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.count .total {
+  color: var(--text-color);
+}
